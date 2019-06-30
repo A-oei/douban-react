@@ -23,19 +23,17 @@ class Navigation extends Component {
         super(props);
     }
 
-    onClick() {
-        this.props.history.push('/search');
-        console.log(this.props);
+    clickPush() {
+        this.props.history.push('/home');
     }
 
     render() {
         return (
-
             <div className='douban-nav ignore'>
                 <div className='nav-logo ignore'>
-                    <NavLink to='/home' className='logo ignore'>
+                    <span className='logo ignore' onClick={this.clickPush.bind(this)}>
                         豆瓣
-                    </NavLink>
+                    </span>
                     <NavLink to='/search' className='search ignore'/>
                 </div>
                 <a className="nav-login ignore"
