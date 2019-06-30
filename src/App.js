@@ -9,28 +9,26 @@ import {
     Route,
     Link,
     Redirect,
-    IndexRoute
 } from "react-router-dom";
 import Test from './pages/Test/index';
 
-import Home from './pages/Home/index';
 
 import AsyncComponent from './core/AsyncComponent';
 
-// const Search = AsyncComponent(() => import('./pages/Search/index.js'));
-import Search from './pages/Search/index.js';
+const Search = AsyncComponent(() => import('./pages/Search/index.js')),
+    Home = AsyncComponent(() => import('./pages/Home/index.js'));
 
+// import Search from './pages/Search/index.js';
 
 function App() {
     return (
         <div className="App">
-            <Router>
-                <Test/>
-                <Switch>
-                    <IndexRoute component={Home}/>
-                    <Route path="/search" component={Search}/>
-                </Switch>
-            </Router>
+            <Test/>
+            <Switch>
+                <Route path="/search" component={Search}/>
+                <Route path="/home" component={Home}/>
+                <Redirect to='/search'/>
+            </Switch>
         </div>
     );
 }

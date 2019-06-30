@@ -4,7 +4,7 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link,
+    NavLink,
     Redirect,
     withRouter
 } from "react-router-dom";
@@ -33,11 +33,10 @@ class Navigation extends Component {
             <Router>
                 <div className='douban-nav ignore'>
                     <div className='nav-logo ignore'>
-                        <a href="https://m.douban.com/" className='logo ignore'>
+                        <NavLink to='/home' className='logo ignore'>
                             豆瓣
-                        </a>
-
-                        <Link to='/search' className='search ignore'/>
+                        </NavLink>
+                        <NavLink to='/search' className='search ignore'/>
                     </div>
                     <a className="nav-login ignore"
                        href='https://www.douban.com/doubanapp/dispatch?copy_open=1&from=mdouban&download=1&model=B&copy=1&page=&channel=m_ad_nav&uri=%2F'>
